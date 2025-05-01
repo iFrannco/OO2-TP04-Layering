@@ -1,0 +1,45 @@
+package ar.unrn.tp4.ej1.database;
+
+import ar.unrn.tp4.ej1.model.Participante;
+import ar.unrn.tp4.ej1.model.RegistroParticipante;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class JDBCRegistroParticipante implements RegistroParticipante {
+    private String url;
+    private String user;
+    private String password;
+
+    public JDBCRegistroParticipante(String url, String user, String password) {
+        this.url = url;
+        this.user = user;
+        this.password = password;
+    }
+
+
+    @Override
+    public void registrarParticipante(Participante participante) {
+        String query = "insert into participantes(nombre, telefono, region) values(?,?,?)";
+
+        try (
+                Connection conn = DriverManager.getConnection(url, user, password);
+                PreparedStatement st = conn.prepareStatement(query);
+        ) {
+            st.setString(1, participante.getNombre());
+            st.setString(2, participante.getTelefono());
+            st.setString(3, participante.getRegion());
+            st.executeUpdate();
+
+            int res = st.executeUpdate();
+            if (res != 0) {
+                System.out.println("Se registro correctamente al participante: " + participante.getNombre());
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}

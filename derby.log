@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Thu May 01 16:31:27 GMT-03:00 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.16.1.1 - (1901046): instance a816c00e-0196-8d55-1bdf-000006f60368 
+on database directory memory:/home/franco/IdeaProjects/OO2-TP04-Layering/ventas with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@5a07e868 
+Loaded from file:/home/franco/.m2/repository/org/apache/derby/derby/10.16.1.1/derby-10.16.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=23.0.2+7-58
+user.dir=/home/franco/IdeaProjects/OO2-TP04-Layering
+os.name=Linux
+os.arch=amd64
+os.version=6.14.3-300.fc42.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
