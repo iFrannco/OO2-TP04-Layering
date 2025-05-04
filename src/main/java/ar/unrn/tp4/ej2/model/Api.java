@@ -1,5 +1,6 @@
 package ar.unrn.tp4.ej2.model;
 
+import java.time.MonthDay;
 import java.util.List;
 
 public class Api {
@@ -11,14 +12,12 @@ public class Api {
         this.importador = importador;
     }
 
-    public List<Persona> obtenerPersonas() {
-        return importador.importarPersonas();
-    }
-
-    public void saludarCumpleaños(Persona persona) {
-        if (persona.cumpleAños()) {
-            notificador.saludarCumpleaños(persona);
+    public void saludarPorCumpleaños(MonthDay diaMes, String mensaje) {
+        List<Persona> personas = importador.importarPersonas();
+        for (Persona persona : personas) {
+            if (persona.cumpleAñosEn(diaMes)) {
+                notificador.saludarCumpleaños(persona, mensaje);
+            }
         }
     }
-
 }

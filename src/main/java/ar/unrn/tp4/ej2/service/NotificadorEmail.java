@@ -31,7 +31,7 @@ public class NotificadorEmail implements Notificador {
     }
 
     @Override
-    public void saludarCumpleaños(Persona persona) {
+    public void saludarCumpleaños(Persona persona, String mensaje) {
         Properties prop = new Properties();
         prop.put("mail.smtp.host", this.proveedorDeCorreo);
         prop.put("mail.smtp.port", this.port);
@@ -46,7 +46,6 @@ public class NotificadorEmail implements Notificador {
             message.setRecipients(
                     Message.RecipientType.TO, InternetAddress.parse("fcabeza91@gmail.com"));
             message.setSubject("Feliz cumpleaños");
-            String mensaje = "Mensaje de feliz cumpleaños";
             message.setText(mensaje);
 
             Transport.send(message);

@@ -1,6 +1,7 @@
 package ar.unrn.tp4.ej2.model;
 
 import java.time.LocalDate;
+import java.time.MonthDay;
 
 public class Persona {
     private String nombre;
@@ -15,18 +16,11 @@ public class Persona {
         this.correo = correo;
     }
 
-    @Override
-    public String toString() {
-        return "Persona{" +
-                "nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", fechaNacimiento=" + fechaNacimiento +
-                ", correo='" + correo + '\'' +
-                '}';
+    public String obtenerNombre() {
+        return this.nombre;
     }
 
-    public boolean cumpleAños() {
-        LocalDate hoy = LocalDate.now();
-        return this.fechaNacimiento.getMonth() == hoy.getMonth() && this.fechaNacimiento.getDayOfMonth() == hoy.getDayOfMonth();
+    public boolean cumpleAñosEn(MonthDay diaMes) {
+        return this.fechaNacimiento.getMonth() == diaMes.getMonth() && this.fechaNacimiento.getDayOfMonth() == diaMes.getDayOfMonth();
     }
 }
