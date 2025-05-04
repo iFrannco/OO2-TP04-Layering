@@ -59,8 +59,12 @@ public class Inscripcion {
     public String getEmail() {
         return this.email;
     }
-    
+
     public int getConcursoId() {
         return this.concurso.obtenerId();
+    }
+
+    public String getDni() {
+        return this.dni;
     }
 }
