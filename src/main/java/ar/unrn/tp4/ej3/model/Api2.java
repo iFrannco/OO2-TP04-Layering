@@ -1,5 +1,6 @@
 package ar.unrn.tp4.ej3.model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -24,10 +25,12 @@ public class Api2 {
         }
     }
 
-    public List<ConcursoRecord> obtenerConcursos() {
+    public List<ConcursoRecord> obtenerConcursosActivos(LocalDate fechaActual) {
         List<ConcursoRecord> concursos = new ArrayList<>();
         for (Concurso2 concurso : registroConcursos.obtenerConcursos()) {
-            concursos.add(new ConcursoRecord(concurso.obtenerId(), concurso.obtenerNombre()));
+            if (concurso.estaActivo(fechaActual)) {
+                concursos.add(new ConcursoRecord(concurso.obtenerId(), concurso.obtenerNombre()));
+            }
         }
         return concursos;
     }

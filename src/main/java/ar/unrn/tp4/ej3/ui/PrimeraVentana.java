@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 
 public class PrimeraVentana {
     private JPanel contentPane;
@@ -98,7 +99,7 @@ public class PrimeraVentana {
     }
 
     private void todosLosConcursos() {
-        for (ConcursoRecord concurso : api.obtenerConcursos()) {
+        for (ConcursoRecord concurso : api.obtenerConcursosActivos(LocalDate.now())) {
             comboBox.addItem(concurso);
         }
     }

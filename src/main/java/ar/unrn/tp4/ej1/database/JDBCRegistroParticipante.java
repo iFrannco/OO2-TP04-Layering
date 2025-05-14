@@ -18,8 +18,7 @@ public class JDBCRegistroParticipante implements RegistroParticipante {
         this.user = user;
         this.password = password;
     }
-
-
+    
     @Override
     public void registrarParticipante(Participante participante) {
         String query = "insert into participantes(nombre, telefono, region) values(?,?,?)";

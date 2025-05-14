@@ -23,4 +23,11 @@ public class Concurso2 {
     public int obtenerId() {
         return this.idConcurso;
     }
+
+    public boolean estaActivo(LocalDate fechaActual) {
+        if (fechaActual.isBefore(this.fechaFinInscripcion) && fechaActual.isAfter(this.fechaInicioInscripcion)) {
+            return true;
+        }
+        return false;
+    }
 }
